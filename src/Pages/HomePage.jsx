@@ -14,25 +14,22 @@ export const HomePage = () => {
 
 
   const getEnglishSongs = () => {
-    const englishSongs = songsData.filter(
-      (song) => song.Language === "English"
+    const englishSongs = songsData?.filter(
+      (song) => song?.language === "English"
     );
     dispatch(setEnglishSongsData(englishSongs))
     navigate("/SongsList")
-  
   };
 
   const getTeluguSongs = () => {
-    const teluguSongs = songsData.filter((song) => song.Language === "Telugu");
+    const teluguSongs = songsData?.filter((song) => song?.language === "Telugu");
     dispatch(setTeluguSongsData(teluguSongs))
     navigate("/SongsList")
-
   };
 
   return (
     <div style={{ textAlign: "center" }}>
-      
-      <Typography variant="h6" sx={{ marginTop: "2em" }}>
+      <Typography variant="h6" sx={{ marginTop: "2em",padding:"1em" }}>
         Come, let us sing for joy to the LORD; let us shout aloud to the Rock of
         our salvation.
       </Typography>
@@ -46,12 +43,15 @@ export const HomePage = () => {
       >
         <Button
           size="large"
+          className="buttons"
           sx={{
-            background: "#cfe4ff",
+            
             marginTop: "2em",
-            width: "70vw",
-            height: "8vh",
+            width: "40vw",
+            height: "6vh",
+            fontWeight:"900rem"
           }}
+          variant="outlined"
           onClick={() => getEnglishSongs()}
         >
           English Songs
@@ -59,11 +59,12 @@ export const HomePage = () => {
 
         <Button
           size="large"
+          variant="outlined"
           sx={{
-            background: "#cfe4ff",
             marginTop: "2em",
-            width: "70vw",
-            height: "8vh",
+            width: "40vw",
+            height: "6vh",
+            
           }}
           onClick={() => getTeluguSongs()}
         >
@@ -73,11 +74,11 @@ export const HomePage = () => {
 
         <Button
           size="large"
+          variant="outlined"
           sx={{
-            background: "#cfe4ff",
             marginTop: "2em",
-            width: "70vw",
-            height: "8vh",
+            width: "40vw",
+            height: "6vh",
           }}
         >
           Hindi Songs
@@ -85,11 +86,11 @@ export const HomePage = () => {
 
         <Button
           size="large"
+          variant="outlined"
           sx={{
-            background: "#cfe4ff",
             marginTop: "2em",
-            width: "70vw",
-            height: "8vh",
+            width: "40vw",
+            height: "6vh",
           }}
         >
           Tamil Songs

@@ -20,12 +20,12 @@ export const SongList = () => {
 }
   return (
     <div style={{ textAlign: "center" }}>
-      <Typography variant="h6" sx={{ marginTop: "2em" }}>
+      <Typography variant="h5" sx={{ marginTop: "2em" ,fontWeight:"900",color:'#232626'}}>
         {selectedListName}
       </Typography>
       <Box
         sx={{
-          width: "70vw",
+          width: "40vw",
           margin: "auto",
           alignItems: "center",
           textAlign: "center",
@@ -34,22 +34,24 @@ export const SongList = () => {
         {songsList.map((data, index) => (
           <p key={index}>
             <Button
+            variant="contained"
+            
               size="large"
               sx={{
-                background: "#cfe4ff",
+               
                 marginTop: "1em",
-                width: "70vw",
+                width: "40vw",
                 height: "6vh",
               }}
               onClick={() => getSongData( data)}
             >
-              {data.Name}
+              {data?.songName}
             </Button>
           </p>
         ))} <Button
         size="large"
         sx={{
-          background: '#cfe4ff',
+          background: '#f3f0ee',
           marginTop: '1em',
         }}
         onClick={() => backToList()}

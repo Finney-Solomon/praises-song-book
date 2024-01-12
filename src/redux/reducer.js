@@ -1,8 +1,20 @@
+import { Lyrics } from "@mui/icons-material";
+
 const initialState = {
   selectedListName: "",
   selectedSongsList: [],
   selectedSong: {},
   totalData: [],
+  addNewSong: {
+    songName: "",
+    songNumber: "",
+    language: "English",
+    lyrics: "",
+    chords: false,
+    chordsAndLyrics: "",
+    youtubeLink: "",
+    englishLyrics: "",
+  },
 };
 
 export const reducer = (state = initialState, actions) => {
@@ -27,12 +39,30 @@ export const reducer = (state = initialState, actions) => {
         selectedSongsList: payload,
         selectedListName: "Telugu Songs",
       };
-      case "SET_SELECTED_SONG_DATA":
-        return {
-          ...state,
-          selectedSong: payload,
-        };
-  
+    case "SET_SELECTED_SONG_DATA":
+      return {
+        ...state,
+        selectedSong: payload,
+      };
+    case "UPDATE_NEW_SONG_DATA":
+      return {
+        ...state,
+        addNewSong: payload,
+      };
+    case "ADDED_NEW_SONG_TO_FIREBASE_CLOUD":
+      return {
+        ...state,
+        addNewSong: {
+          songName: "",
+          songNumber: "",
+          language: "English",
+          lyrics: "",
+          chords: false,
+          chordsAndLyrics: "",
+          youtubeLink: "",
+          englishLyrics: "",
+        },
+      };
 
     default:
       return { ...state };
