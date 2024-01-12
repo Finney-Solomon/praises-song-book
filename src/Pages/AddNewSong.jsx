@@ -78,6 +78,7 @@ export const AddNewSong = () => {
     };
     console.log(payload, "check data");
     dispatch(addNewSongFireBaseCloud(payload));
+    navigate("/")
   };
 
   return (
@@ -145,12 +146,12 @@ export const AddNewSong = () => {
           <TextField
             id="outlined-multiline-static"
             label="Song Lyrics in English"
-            name="chordsAndLyrics"
+            name="englishLyrics"
             multiline
             rows={8}
             helperText="Paste the Song Lyrics in English"
             onChange={handleChange}
-            value={formState.chordsAndLyrics}
+            value={formState.englishLyrics}
           />
         ) : (
           <></>

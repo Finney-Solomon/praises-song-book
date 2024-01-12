@@ -34,7 +34,7 @@ export const Song = () => {
         <Tabs value={lyricsTab} onChange={handleChange} centered>
           <Tab label="Lyrics" />
           <Tab label="Lyrics in English" isDisabled={selectedSong?.englishLyrics === '' ? true : false} />
-          <Tab label="Chords" />
+          <Tab label="Chords" isDisabled={selectedSong?.chordsAndLyrics === '' ? true : false} />
         </Tabs>
         <Typography variant="h6" sx={{ marginTop: "1em", fontWeight: "600" }}>
 
@@ -44,7 +44,7 @@ export const Song = () => {
               <br />
             </React.Fragment>
           ))
-            : null}
+            :  <></>}
 
           {lyricsTab === 1 ? selectedSong?.englishLyrics?.split("<br>").map((line, i) => (
             <React.Fragment key={i}>
@@ -52,7 +52,7 @@ export const Song = () => {
               <br />
             </React.Fragment>
           ))
-            : null}
+            : <></>}
 
           {lyricsTab === 2 ? selectedSong?.chordsAndLyrics?.split("<br>").map((line, i) => (
             <React.Fragment key={i}>
@@ -60,7 +60,7 @@ export const Song = () => {
               <br />
             </React.Fragment>
           ))
-            : null}
+            :  <>Chords Not Avaliable8</>}
         </Typography>
         <div style={{ justifyContent: "center", display: "flex" }}>
           <ReactPlayer url={selectedSong?.youtubeLink} />
