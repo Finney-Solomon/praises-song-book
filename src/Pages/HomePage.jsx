@@ -5,31 +5,30 @@ import { useDispatch } from "react-redux";
 import { setEnglishSongsData, setTeluguSongsData } from "../redux/action";
 import { useNavigate } from "react-router-dom";
 
-
 export const HomePage = () => {
-
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const songsData = useSelector((state) => state?.totalData);
-
 
   const getEnglishSongs = () => {
     const englishSongs = songsData?.filter(
       (song) => song?.language === "English"
     );
-    dispatch(setEnglishSongsData(englishSongs))
-    navigate("/SongsList")
+    dispatch(setEnglishSongsData(englishSongs));
+    navigate("/SongsList");
   };
 
   const getTeluguSongs = () => {
-    const teluguSongs = songsData?.filter((song) => song?.language === "Telugu");
-    dispatch(setTeluguSongsData(teluguSongs))
-    navigate("/SongsList")
+    const teluguSongs = songsData?.filter(
+      (song) => song?.language === "Telugu"
+    );
+    dispatch(setTeluguSongsData(teluguSongs));
+    navigate("/SongsList");
   };
 
   return (
     <div style={{ textAlign: "center" }}>
-      <Typography variant="h6" sx={{ marginTop: "2em",padding:"1em" }}>
+      <Typography variant="h6" sx={{ marginTop: "2em", padding: "1em" }}>
         Come, let us sing for joy to the LORD; let us shout aloud to the Rock of
         our salvation.
       </Typography>
@@ -44,14 +43,14 @@ export const HomePage = () => {
         <Button
           size="large"
           className="buttons"
+          
           sx={{
-            
             marginTop: "2em",
             width: "40vw",
             height: "6vh",
-            fontWeight:"900rem"
+            fontWeight: "900rem",
           }}
-          variant="outlined"
+          variant="contained"
           onClick={() => getEnglishSongs()}
         >
           English Songs
@@ -59,22 +58,20 @@ export const HomePage = () => {
 
         <Button
           size="large"
-          variant="outlined"
+          variant="contained"
           sx={{
             marginTop: "2em",
             width: "40vw",
             height: "6vh",
-            
           }}
           onClick={() => getTeluguSongs()}
         >
-         
           Telugu Songs
         </Button>
 
         <Button
           size="large"
-          variant="outlined"
+          variant="contained"
           sx={{
             marginTop: "2em",
             width: "40vw",
@@ -86,7 +83,7 @@ export const HomePage = () => {
 
         <Button
           size="large"
-          variant="outlined"
+          variant="contained"
           sx={{
             marginTop: "2em",
             width: "40vw",

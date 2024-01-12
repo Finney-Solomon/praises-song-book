@@ -8,6 +8,7 @@ import {
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addNewSongFireBaseCloud, updateNewSongData } from "../redux/action";
+import { useNavigate } from "react-router-dom";
 
 const language = [
   {
@@ -30,58 +31,57 @@ const language = [
 
 export const AddNewSong = () => {
   const dispatch = useDispatch();
-
+  const navigate = useNavigate();
   const addNewSongData = useSelector((state) => state?.addNewSong);
   const totalData = useSelector((state) => state?.totalData);
   const [formState, setFormState] = React.useState(addNewSongData);
-  
- 
-  
+
   const handleChange = (event) => {
     event.preventDefault();
-    setFormState({ ...formState, [event.target.name]: event.target.value, });
+    setFormState({ ...formState, [event.target.name]: event.target.value });
     if (event.target.type === "checkbox")
       setFormState({ ...formState, [event.target.name]: event.target.checked });
     dispatch(updateNewSongData(formState));
   };
 
- 
-
   const handleSubmit = (event) => {
     // event.preventDefault();
-   
+
     const lyricsWithBreakTag = addNewSongData.lyrics.replace(/\n/g, "<br>");
-    const englishLyricsWithBreakTag = addNewSongData.englishLyrics.replace(/\n/g, "<br>");
-    
-    const chordsAndLyricsWithBreakTag = (lyricsString)=> {
-  // Split the lyrics into an array of lines
-  const lyricsArray = lyricsString.split('\n');
+    const englishLyricsWithBreakTag = addNewSongData.englishLyrics.replace(
+      /\n/g,
+      "<br>"
+    );
 
-  let formattedLyrics = "";
+    const chordsAndLyricsWithBreakTag = (lyricsString) => {
+      // Split the lyrics into an array of lines
+      const lyricsArray = lyricsString.split("\n");
 
-  for (let line of lyricsArray) {
-    formattedLyrics += line.trim() + "<br>\n";
-  }
+      let formattedLyrics = "";
 
-  return formattedLyrics;
-  
-    }
+      for (let line of lyricsArray) {
+        formattedLyrics += line.trim() + "<br>\n";
+      }
 
-    const chordsAndLyrics=chordsAndLyricsWithBreakTag(addNewSongData?.chordsAndLyrics)
-    const payload={
-      ...formState,songNumber:totalData?.length + 1,
-      lyrics:lyricsWithBreakTag,
-      englishLyrics : englishLyricsWithBreakTag,
-      chordsAndLyrics : chordsAndLyrics,
-    }
-    console.log(payload,"check data")
-    dispatch(addNewSongFireBaseCloud
-      (payload));
-  
+      return formattedLyrics;
+    };
+
+    const chordsAndLyrics = chordsAndLyricsWithBreakTag(
+      addNewSongData?.chordsAndLyrics
+    );
+    const payload = {
+      ...formState,
+      songNumber: totalData?.length + 1,
+      lyrics: lyricsWithBreakTag,
+      englishLyrics: englishLyricsWithBreakTag,
+      chordsAndLyrics: chordsAndLyrics,
+    };
+    console.log(payload, "check data");
+    dispatch(addNewSongFireBaseCloud(payload));
   };
 
   return (
-    < >
+    <>
       <div
         style={{
           display: "flex",
@@ -141,42 +141,42 @@ export const AddNewSong = () => {
             label="Lyrics avaliable in English"
           />
         )}
-          {formState?.checkAnotherLyrics === true ? (
-           <TextField
-           id="outlined-multiline-static"
-           label="Song Lyrics in English"
-           name="chordsAndLyrics"
-           multiline
-           rows={8}
-           helperText="Paste the Song Lyrics in English"
-           onChange={handleChange}
-           value={formState.chordsAndLyrics}
-         />
+        {formState?.checkAnotherLyrics === true ? (
+          <TextField
+            id="outlined-multiline-static"
+            label="Song Lyrics in English"
+            name="chordsAndLyrics"
+            multiline
+            rows={8}
+            helperText="Paste the Song Lyrics in English"
+            onChange={handleChange}
+            value={formState.chordsAndLyrics}
+          />
         ) : (
           <></>
         )}
-<br />
+        <br />
         <FormControlLabel
           name="chords"
           onChange={handleChange}
           control={<Checkbox checked={formState.chords} />}
           label="Chords"
         />
-         {formState?.chords === true ? (
-           <TextField
-           id="outlined-multiline-static"
-           label="Song Chords & Lyrics"
-           name="chordsAndLyrics"
-           multiline
-           rows={8}
-           helperText="Paste the Song Lyrics with Chords"
-           onChange={handleChange}
-           value={formState.chordsAndLyrics}
-         />
+        {formState?.chords === true ? (
+          <TextField
+            id="outlined-multiline-static"
+            label="Song Chords & Lyrics"
+            name="chordsAndLyrics"
+            multiline
+            rows={8}
+            helperText="Paste the Song Lyrics with Chords"
+            onChange={handleChange}
+            value={formState.chordsAndLyrics}
+          />
         ) : (
           <></>
         )}
-           <br />
+        <br />
         <TextField
           id="standard-basic"
           name="youtubeLink"
@@ -187,10 +187,32 @@ export const AddNewSong = () => {
         />
         <br />
         <br />
-        <Button variant="contained" type="submit" onClick={()=>handleSubmit()}>
-          Add
-        </Button>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+          }}
+        >
+          <Button
+            variant="outlined"
+            type="submit"
+            onClick={() => navigate("/")}
+            sx={{ width: "20vw", margin: "1em" }}
+          >
+            Back to Home
+          </Button>{" "}
+          <Button
+            variant="contained"
+            type="submit"
+            onClick={() => handleSubmit()}
+            sx={{ width: "20vw", margin: "1em" }}
+          >
+            Add
+          </Button>
+        </div>
       </div>
+      <br />
+      <br />
     </>
   );
 };

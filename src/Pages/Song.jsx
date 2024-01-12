@@ -33,34 +33,34 @@ export const Song = () => {
 
         <Tabs value={lyricsTab} onChange={handleChange} centered>
           <Tab label="Lyrics" />
-          <Tab label="Lyrics in English" isDisabled={selectedSong?.englishLyrics===''?true:false} />
+          <Tab label="Lyrics in English" isDisabled={selectedSong?.englishLyrics === '' ? true : false} />
           <Tab label="Chords" />
         </Tabs>
         <Typography variant="h6" sx={{ marginTop: "1em", fontWeight: "600" }}>
-        
-         { lyricsTab===0?selectedSong?.lyrics?.split("<br>").map((line, i) => (
-            <React.Fragment key={i}>
-              {line}
-              <br />
-            </React.Fragment>
-          ))
-        :null}
-        
-        { lyricsTab===1?selectedSong?.englishLyrics?.split("<br>").map((line, i) => (
-            <React.Fragment key={i}>
-              {line}
-              <br />
-            </React.Fragment>
-          ))
-        :null}
 
-          { lyricsTab===2?selectedSong?.chordsAndLyrics?.split("<br>").map((line, i) => (
+          {lyricsTab === 0 ? selectedSong?.lyrics?.split("<br>").map((line, i) => (
             <React.Fragment key={i}>
               {line}
               <br />
             </React.Fragment>
           ))
-        :null}
+            : null}
+
+          {lyricsTab === 1 ? selectedSong?.englishLyrics?.split("<br>").map((line, i) => (
+            <React.Fragment key={i}>
+              {line}
+              <br />
+            </React.Fragment>
+          ))
+            : null}
+
+          {lyricsTab === 2 ? selectedSong?.chordsAndLyrics?.split("<br>").map((line, i) => (
+            <React.Fragment key={i}>
+              {line}
+              <br />
+            </React.Fragment>
+          ))
+            : null}
         </Typography>
         <div style={{ justifyContent: "center", display: "flex" }}>
           <ReactPlayer url={selectedSong?.youtubeLink} />
