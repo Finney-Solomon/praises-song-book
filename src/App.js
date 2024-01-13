@@ -27,6 +27,8 @@ function App() {
         </Routes>
 
       </BrowserRouter>
+      
+      <div style={{position: "fixed", left: "0", right: "0", bottom: "5px", textAlign: "center", marginBottom: "0"}}>**All the information on this website is published in good faith and for information purpose only.**</div>
     </div>
   );
 }

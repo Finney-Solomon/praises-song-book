@@ -28,7 +28,7 @@ export const HomePage = () => {
 
   return (
     <div style={{ textAlign: "center" }}>
-      <Typography variant="h6" sx={{ marginTop: "2em", padding: "1em" }}>
+      <Typography variant="h6" sx={{ marginTop: "2em", padding: "1em" ,fontSize:"large"}}>
         Come, let us sing for joy to the LORD; let us shout aloud to the Rock of
         our salvation.
       </Typography>
