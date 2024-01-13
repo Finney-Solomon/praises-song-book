@@ -46,7 +46,7 @@ export const HomePage = () => {
           
           sx={{
             marginTop: "2em",
-            width: "40vw",
+              width: { xs: "80vw", md: "40vw" },
             height: "6vh",
             fontWeight: "900rem",
           }}
@@ -61,7 +61,7 @@ export const HomePage = () => {
           variant="contained"
           sx={{
             marginTop: "2em",
-            width: "40vw",
+              width: { xs: "80vw", md: "40vw" },
             height: "6vh",
           }}
           onClick={() => getTeluguSongs()}
@@ -74,7 +74,7 @@ export const HomePage = () => {
           variant="contained"
           sx={{
             marginTop: "2em",
-            width: "40vw",
+            width: { xs: "80vw", md: "40vw" },
             height: "6vh",
           }}
         >
@@ -86,7 +86,7 @@ export const HomePage = () => {
           variant="contained"
           sx={{
             marginTop: "2em",
-            width: "40vw",
+              width: { xs: "80vw", md: "40vw" },
             height: "6vh",
           }}
         >

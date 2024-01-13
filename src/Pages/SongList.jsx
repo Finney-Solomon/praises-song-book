@@ -10,6 +10,7 @@ export const SongList = () => {
   const selectedListName = useSelector((state) => state?.selectedListName);
   const songsList = useSelector((state) => state?.selectedSongsList);
 
+ 
   const getSongData = (data) => {
     dispatch(setSelectedSongData(data))
     navigate("/Song")
@@ -25,7 +26,7 @@ export const SongList = () => {
       </Typography>
       <Box
         sx={{
-          width: "40vw",
+    
           margin: "auto",
           alignItems: "center",
           textAlign: "center",
@@ -40,8 +41,13 @@ export const SongList = () => {
               sx={{
 
                 marginTop: "1em",
-                width: "40vw",
+                width: { xs: "80vw", md: "40vw" },
                 height: "6vh",
+                whiteSpace: "nowrap",
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+
+                
               }}
               onClick={() => getSongData(data)}
             >

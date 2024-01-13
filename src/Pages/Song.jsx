@@ -19,11 +19,11 @@ export const Song = () => {
     <div style={{ textAlign: "center" }}>
       <Box
         sx={{
-          width: "94.5vw",
+          width: { xs: "83.5vw", md: "94.5vw" },
           margin: "auto",
           alignItems: "center",
           backgroundColor: "#f5f5f5",
-          fontWeight: "2em",
+          // fontWeight: "2em",
           padding: "2em",
         }}
       >
@@ -36,7 +36,7 @@ export const Song = () => {
           <Tab label="Lyrics in English" isDisabled={selectedSong?.englishLyrics === '' ? true : false} />
           <Tab label="Chords" isDisabled={selectedSong?.chordsAndLyrics === '' ? true : false} />
         </Tabs>
-        <Typography variant="h6" sx={{ marginTop: "1em", fontWeight: "600" }}>
+        <Typography variant="h6" sx={{ marginTop: "1em", fontWeight:{ xs: "400", md: "600" } }}>
 
           {lyricsTab === 0 ? selectedSong?.lyrics?.split("<br>").map((line, i) => (
             <React.Fragment key={i}>
