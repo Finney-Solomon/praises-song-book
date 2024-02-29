@@ -8,6 +8,7 @@ export const Song = () => {
 
   const backToList = () => {
     window.history.back();
+    
   };
 
   const [lyricsTab, setLyricsTab] = React.useState(0);

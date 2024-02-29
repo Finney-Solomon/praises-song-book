@@ -39,7 +39,8 @@ export const Header = () => {
             </h2>
           </Typography>
           <Box sx={{ flexGrow: 0, position: "sticky" }}>
-            {/* <Button variant='contained' onClick={() => navigate("/AddNewSong")}>Add New Song</Button> */}
+          <Button variant='contained' onClick={() => navigate("/SignIn")}>Sign In</Button>
+            <Button variant='contained' onClick={() => navigate("/AddNewSong")}>Add New Song</Button>
             <Tooltip title="Open settings">
               {/* <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />

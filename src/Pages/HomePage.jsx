@@ -2,7 +2,7 @@ import React from "react";
 import { Box, Button, Typography } from "@mui/material";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { setEnglishSongsData, setTeluguSongsData } from "../redux/action";
+import { getSongs, setEnglishSongsData, setTeluguSongsData } from "../redux/action";
 import { useNavigate } from "react-router-dom";
 
 export const HomePage = () => {
@@ -16,6 +16,7 @@ export const HomePage = () => {
     );
     dispatch(setEnglishSongsData(englishSongs));
     navigate("/SongsList");
+    dispatch(getSongs())
   };
 
   const getTeluguSongs = () => {
@@ -24,6 +25,7 @@ export const HomePage = () => {
     );
     dispatch(setTeluguSongsData(teluguSongs));
     navigate("/SongsList");
+    dispatch(getSongs())
   };
 
   return (

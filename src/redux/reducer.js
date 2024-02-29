@@ -15,6 +15,11 @@ const initialState = {
     youtubeLink: "",
     englishLyrics: "",
   },
+  userDetails:{ 
+    userName:"",
+    userType:""
+}
+  
 };
 
 export const reducer = (state = initialState, actions) => {

@@ -8,6 +8,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Song } from "./Pages/Song";
 import './App.css';
 import { AddNewSong } from "./Pages/AddNewSong";
+import { SignIn } from "./Pages/SignIn";
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -21,6 +22,7 @@ function App() {
         <Header />  
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="SignIn" element={<SignIn />} />
           <Route path="SongsList" element={<SongList />} />
           <Route path="Song" element={<Song />} />
           <Route path="AddNewSong" element={<AddNewSong />} />

@@ -2,7 +2,7 @@ import { Box, Button, Typography } from "@mui/material";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { setSelectedSongData } from "../redux/action";
+import { getSongs, setSelectedSongData } from "../redux/action";
 
 export const SongList = () => {
   const dispatch = useDispatch();
@@ -18,6 +18,7 @@ export const SongList = () => {
 
   const backToList = () => {
     window.history.back();
+    dispatch(getSongs())
   }
   return (
     <div style={{ textAlign: "center" }}>
